@@ -153,7 +153,9 @@ def check_token():
 def main():
     check_token()
     db = init_db(); ratio = cfg.get("ratio", 0.85)
-    run = datetime.datetime.now().strftime("%Y-%m-%d")  # 同一天重复运行=断点续跑
+    # 同一天重复运行=断点续跑；设 YYYP_FORCE=1 则以「日期 时:分」作为新批次，强制完整重扫
+    now = datetime.datetime.now()
+    run = now.strftime("%Y-%m-%d %H:%M") if os.environ.get("YYYP_FORCE") in ("1", "true", "True") else now.strftime("%Y-%m-%d")
     done = {r[0] for r in db.execute("SELECT tid FROM snapshot WHERE run=?", (run,))}
     items = load_items()
     todo = [t for t in items if t not in done]
