@@ -1,0 +1,76 @@
+name: 悠悠求购监控
+
+on:
+  workflow_dispatch:          # 在 Actions 页面手动点 "Run workflow"
+  # 需要定时再取消下面两行注释（cron 为 UTC 时间，19:00 UTC = 北京时间凌晨 3 点）
+  # schedule:
+  #   - cron: "0 19 * * *"
+
+permissions:
+  contents: write             # 允许把数据库和报告提交回仓库
+
+concurrency:
+  group: yyyp-monitor
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install -r requirements.txt
+
+      - name: 接口预检
+        env:
+          YP_RAW_HEADERS: ${{ secrets.YP_RAW_HEADERS }}      # 推荐：整段请求头一个 secret 搞定
+          YP_AUTHORIZATION: ${{ secrets.YP_AUTHORIZATION }}  # 或者分别填 4 个（二选一）
+          YP_DEVICE_ID: ${{ secrets.YP_DEVICE_ID }}
+          YP_DEVICE_UK: ${{ secrets.YP_DEVICE_UK }}
+          YP_UK: ${{ secrets.YP_UK }}
+        run: |
+          python - <<'PY'
+          import sys, monitor
+          monitor.check_token()
+          d = monitor.post('/api/youpin/bff/trade/purchase/order/getTemplatePurchaseOrderListPC',
+                           {'templateId': '43397', 'pageIndex': 1, 'pageSize': 10})
+          ok1 = d.get('code') == 0
+          d2 = monitor.post('/api/homepage/pc/goods/market/querySaleTemplate',
+                            {'gameId':'730','listType':'10','keyWords':'AWP','pageIndex':1,'pageSize':10,'listSortType':0,'sortType':0})
+          ok2 = d2.get('Code') == 0
+          print('求购接口', '✅' if ok1 else f'❌ {d}')
+          print('搜索接口', '✅' if ok2 else f'❌ {d2}')
+          if not (ok1 and ok2): sys.exit('接口不可用（可能是海外 IP 被拦截或 token 失效）')
+          PY
+
+      - name: 运行监控
+        env:
+          YP_RAW_HEADERS: ${{ secrets.YP_RAW_HEADERS }}      # 推荐：整段请求头一个 secret 搞定
+          YP_AUTHORIZATION: ${{ secrets.YP_AUTHORIZATION }}  # 或者分别填 4 个（二选一）
+          YP_DEVICE_ID: ${{ secrets.YP_DEVICE_ID }}
+          YP_DEVICE_UK: ${{ secrets.YP_DEVICE_UK }}
+          YP_UK: ${{ secrets.YP_UK }}
+          TZ: Asia/Shanghai
+        run: python -u monitor.py
+
+      - name: 提交数据和报告
+        if: always()
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "data: $(TZ=Asia/Shanghai date +'%F %H:%M')"
+          git push
+
+      - name: 上传报告附件
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: report
+          path: data/report.html
+          if-no-files-found: ignore
