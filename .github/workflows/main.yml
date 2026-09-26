@@ -3,10 +3,10 @@ name: 悠悠求购监控
 on:
   workflow_dispatch:
   schedule:
-    - cron: "7 9 * * *"
+    - cron: "7 9 * * *"       # 北京时间 17:07
 
 permissions:
-  contents: write             # 允许把数据库和报告提交回仓库
+  contents: write
 
 concurrency:
   group: yyyp-monitor
@@ -23,12 +23,19 @@ jobs:
         with:
           python-version: "3.11"
 
-      - run: pip install -r requirements.txt
+      - name: 检查文件
+        run: |
+          echo "仓库根目录内容："; ls -la
+          test -f monitor.py || { echo "❌ 根目录没有 monitor.py，请把文件上传到仓库根目录（不要套一层文件夹）"; exit 1; }
+          test -f items.txt  || { echo "❌ 根目录没有 items.txt"; exit 1; }
+          mkdir -p data
+
+      - run: pip install requests
 
       - name: 接口预检
         env:
-          YP_RAW_HEADERS: ${{ secrets.YP_RAW_HEADERS }}      # 推荐：整段请求头一个 secret 搞定
-          YP_AUTHORIZATION: ${{ secrets.YP_AUTHORIZATION }}  # 或者分别填 4 个（二选一）
+          YP_RAW_HEADERS: ${{ secrets.YP_RAW_HEADERS }}
+          YP_AUTHORIZATION: ${{ secrets.YP_AUTHORIZATION }}
           YP_DEVICE_ID: ${{ secrets.YP_DEVICE_ID }}
           YP_DEVICE_UK: ${{ secrets.YP_DEVICE_UK }}
           YP_UK: ${{ secrets.YP_UK }}
@@ -49,8 +56,8 @@ jobs:
 
       - name: 运行监控
         env:
-          YP_RAW_HEADERS: ${{ secrets.YP_RAW_HEADERS }}      # 推荐：整段请求头一个 secret 搞定
-          YP_AUTHORIZATION: ${{ secrets.YP_AUTHORIZATION }}  # 或者分别填 4 个（二选一）
+          YP_RAW_HEADERS: ${{ secrets.YP_RAW_HEADERS }}
+          YP_AUTHORIZATION: ${{ secrets.YP_AUTHORIZATION }}
           YP_DEVICE_ID: ${{ secrets.YP_DEVICE_ID }}
           YP_DEVICE_UK: ${{ secrets.YP_DEVICE_UK }}
           YP_UK: ${{ secrets.YP_UK }}
@@ -60,11 +67,12 @@ jobs:
       - name: 提交数据和报告
         if: always()
         run: |
+          mkdir -p data
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/
+          git add -A data/ || true
           git diff --cached --quiet || git commit -m "data: $(TZ=Asia/Shanghai date +'%F %H:%M')"
-          git push
+          git push || true
 
       - name: 上传报告附件
         if: always()
