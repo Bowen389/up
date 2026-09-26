@@ -2,6 +2,11 @@ name: 悠悠求购监控
 
 on:
   workflow_dispatch:            # Actions 页面手动 Run workflow
+    inputs:
+      force:
+        description: "强制完整重扫（忽略今天已扫过的数据）"
+        type: boolean
+        default: false
   schedule:
     - cron: "7 9 * * *"         # 每天北京时间 17:07（UTC 9:07）
 
@@ -60,6 +65,8 @@ jobs:
           PY
 
       - name: 运行监控
+        env:
+          YYYP_FORCE: ${{ inputs.force }}
         run: python -u monitor.py
 
       - name: 提交数据和报告
