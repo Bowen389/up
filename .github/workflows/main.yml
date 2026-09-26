@@ -1,10 +1,9 @@
 name: 悠悠求购监控
 
 on:
-  workflow_dispatch:          # 在 Actions 页面手动点 "Run workflow"
-  # 需要定时再取消下面两行注释（cron 为 UTC 时间，19:00 UTC = 北京时间凌晨 3 点）
-  # schedule:
-  #   - cron: "0 19 * * *"
+  workflow_dispatch:
+  schedule:
+    - cron: "7 9 * * *"
 
 permissions:
   contents: write             # 允许把数据库和报告提交回仓库
