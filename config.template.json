@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "authorization": "浏览器请求头里的 authorization",
+    "deviceId": "deviceId",
+    "deviceUk": "deviceUk",
+    "uk": "uk"
+  },
+  "ratio": 0.85,
+  "delay_min": 1.5,
+  "delay_max": 3.0,
+  "alert": {
+    "sale_drop_pct": 3,
+    "depth_up_pct": 5,
+    "min_depth_add": 5000
+  }
+}
