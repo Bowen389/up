@@ -28,7 +28,8 @@ jobs:
 
       - name: 接口预检
         env:
-          YP_AUTHORIZATION: ${{ secrets.YP_AUTHORIZATION }}
+          YP_RAW_HEADERS: ${{ secrets.YP_RAW_HEADERS }}      # 推荐：整段请求头一个 secret 搞定
+          YP_AUTHORIZATION: ${{ secrets.YP_AUTHORIZATION }}  # 或者分别填 4 个（二选一）
           YP_DEVICE_ID: ${{ secrets.YP_DEVICE_ID }}
           YP_DEVICE_UK: ${{ secrets.YP_DEVICE_UK }}
           YP_UK: ${{ secrets.YP_UK }}
@@ -49,7 +50,8 @@ jobs:
 
       - name: 运行监控
         env:
-          YP_AUTHORIZATION: ${{ secrets.YP_AUTHORIZATION }}
+          YP_RAW_HEADERS: ${{ secrets.YP_RAW_HEADERS }}      # 推荐：整段请求头一个 secret 搞定
+          YP_AUTHORIZATION: ${{ secrets.YP_AUTHORIZATION }}  # 或者分别填 4 个（二选一）
           YP_DEVICE_ID: ${{ secrets.YP_DEVICE_ID }}
           YP_DEVICE_UK: ${{ secrets.YP_DEVICE_UK }}
           YP_UK: ${{ secrets.YP_UK }}
