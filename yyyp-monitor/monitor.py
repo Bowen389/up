@@ -10,10 +10,23 @@ def _load_cfg():
     c = {"ratio": 0.85, "delay_min": 1.5, "delay_max": 3.0, "headers": {}}
     p = os.environ.get("YYYP_CONFIG", os.path.join(DIR, "config.json"))
     if os.path.exists(p): c.update(json.load(open(p, encoding="utf-8")))
+    raw = os.environ.get("YP_RAW_HEADERS", "")
+    if not raw and os.path.exists(os.path.join(DIR, "headers.txt")):
+        raw = open(os.path.join(DIR, "headers.txt"), encoding="utf-8").read()
+    if raw: c["headers"].update(parse_raw_headers(raw))
     for k, env in [("authorization", "YP_AUTHORIZATION"), ("deviceId", "YP_DEVICE_ID"),
                    ("deviceUk", "YP_DEVICE_UK"), ("uk", "YP_UK")]:
         if os.environ.get(env): c["headers"][k] = os.environ[env].strip()
     return c
+
+def parse_raw_headers(raw):
+    """从整段粘贴的请求头 / cURL 中提取 4 项（不区分大小写）"""
+    import re
+    out = {}
+    for key in ["authorization", "deviceId", "deviceUk", "uk"]:
+        m = re.search(r"(?im)(?:^|-H\s*['\"]|\s)" + key + r"\s*:\s*([^\s'\"]+)", raw)
+        if m: out[key] = m.group(1).strip()
+    return out
 cfg = _load_cfg()
 
 S = requests.Session()
