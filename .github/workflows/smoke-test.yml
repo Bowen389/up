@@ -23,7 +23,7 @@ jobs:
       YP_DEVICE_ID: ${{ secrets.YP_DEVICE_ID }}
       YP_DEVICE_UK: ${{ secrets.YP_DEVICE_UK }}
       YP_UK: ${{ secrets.YP_UK }}
-      YYYP_DATA: ${{ runner.temp }}/yyyp-smoke-${{ github.run_id }}
+      YYYP_DATA: ${{ github.workspace }}/.smoke-output
       YYYP_FORCE: '1'
       TZ: Asia/Shanghai
     steps:
