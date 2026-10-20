@@ -23,7 +23,7 @@ jobs:
       YP_DEVICE_ID: ${{ secrets.YP_DEVICE_ID }}
       YP_DEVICE_UK: ${{ secrets.YP_DEVICE_UK }}
       YP_UK: ${{ secrets.YP_UK }}
-      YYYP_DATA: ${{ github.workspace }}/.smoke-output
+      YYYP_DATA: ${{ github.workspace }}/smoke-output
       YYYP_FORCE: '1'
       TZ: Asia/Shanghai
     steps:
@@ -60,17 +60,8 @@ jobs:
               return result
           monitor.post = bounded_post
 
-          # 小样本直接查询在售接口，避免分类搜索遍历大量无关商品。
-          def sample_prices(items):
-              prices = {}
-              for tid in items:
-                  price, count, name = monitor.get_on_sale(tid)
-                  if price is None or price <= 0:
-                      raise RuntimeError("商品无有效在售价: " + str(tid))
-                  prices[tid] = (price, count, name)
-                  monitor.sleep()
-              return prices
-          monitor.batch_prices = sample_prices
+          # 复用正式任务的搜索价格入口，仅查询这3件商品所属类别。
+          monitor.GROUP_KEYWORDS = []
           monitor.main()
 
           data = pathlib.Path(os.environ["YYYP_DATA"])
