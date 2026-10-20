@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: yyyp-dragon-test
+  group: yyyp-monitor
   cancel-in-progress: false
 
 jobs:
@@ -61,8 +61,25 @@ jobs:
               return result
           monitor.post = bounded_post
 
-          # 复用正式任务的搜索价格入口，仅查询这1件商品所属类别。
-          monitor.GROUP_KEYWORDS = []
+          # 和全量任务共用并发锁；精准关键词只搜一页，按ID校验。
+          def dragon_prices(items):
+              result = monitor.post(
+                  "/api/homepage/pc/goods/market/querySaleTemplate",
+                  {"gameId": "730", "listType": "10", "keyWords": "黑龙纹身",
+                   "pageIndex": 1, "pageSize": 20, "listSortType": 0, "sortType": 0})
+              matches = [x for x in (result.get("Data") or [])
+                         if str(x.get("id")) == "43712"]
+              if len(matches) != 1:
+                  raise RuntimeError("搜索未唯一匹配43712；停止，避免取错磨损或暗金版本")
+              item = matches[0]
+              price = float(item.get("price") or 0)
+              if price <= 0:
+                  raise RuntimeError("43712未返回有效在售价")
+              print("精确匹配43712，一页搜索完成", flush=True)
+              monitor.sleep()
+              return {43712: (price, item.get("onSaleCount") or 0,
+                              item["commodityName"])}
+          monitor.batch_prices = dragon_prices
           monitor.main()
 
           data = pathlib.Path(os.environ["YYYP_DATA"])
