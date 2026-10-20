@@ -1,0 +1,107 @@
+name: 求购小样本链路测试
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/smoke-test.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: yyyp-smoke-test
+  cancel-in-progress: false
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      YP_RAW_HEADERS: ${{ secrets.YP_RAW_HEADERS }}
+      YP_AUTHORIZATION: ${{ secrets.YP_AUTHORIZATION }}
+      YP_DEVICE_ID: ${{ secrets.YP_DEVICE_ID }}
+      YP_DEVICE_UK: ${{ secrets.YP_DEVICE_UK }}
+      YP_UK: ${{ secrets.YP_UK }}
+      YYYP_DATA: ${{ runner.temp }}/yyyp-smoke-${{ github.run_id }}
+      YYYP_FORCE: '1'
+      TZ: Asia/Shanghai
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - name: 采集3件商品并核验数据库与报告
+        run: |
+          python -u - <<'PY'
+          import json
+          import os
+          import pathlib
+          import sqlite3
+          import monitor
+
+          original_load = monitor.load_items
+          selected = original_load()[:3]
+          if len(selected) != 3:
+              raise RuntimeError("需要至少3件配置商品")
+          monitor.load_items = lambda: selected
+          original_post = monitor.post
+          calls = 0
+          def bounded_post(path, body, tries=2):
+              global calls
+              calls += 1
+              if calls > 40:
+                  raise RuntimeError("测试请求上限40次，停止采集")
+              result = original_post(path, body, tries=min(tries, 2))
+              code = result.get("code", result.get("Code"))
+              if code != 0:
+                  raise RuntimeError("接口返回非成功状态，code=" + str(code))
+              return result
+          monitor.post = bounded_post
+
+          # 小样本直接查询在售接口，避免分类搜索遍历大量无关商品。
+          def sample_prices(items):
+              prices = {}
+              for tid in items:
+                  price, count, name = monitor.get_on_sale(tid)
+                  if price is None or price <= 0:
+                      raise RuntimeError("商品无有效在售价: " + str(tid))
+                  prices[tid] = (price, count, name)
+                  monitor.sleep()
+              return prices
+          monitor.batch_prices = sample_prices
+          monitor.main()
+
+          data = pathlib.Path(os.environ["YYYP_DATA"])
+          with sqlite3.connect(data / "yyyp.db") as db:
+              db.row_factory = sqlite3.Row
+              rows = [dict(r) for r in db.execute("SELECT * FROM snapshot ORDER BY tid")]
+          if len(rows) != 3 or {r["tid"] for r in rows} != set(selected):
+              raise RuntimeError("快照不完整，实际条数: " + str(len(rows)))
+          report = data / "report.html"
+          if not report.exists() or report.stat().st_size == 0:
+              raise RuntimeError("报告未生成")
+          summary = {
+              "mode": "SMOKE_TEST_ONLY",
+              "expected": 3,
+              "collected": len(rows),
+              "api_calls": calls,
+              "snapshots": rows,
+              "note": "独立测试数据；首次运行无历史对比，不代表完整市场扫描或交易信号"
+          }
+          (data / "summary.json").write_text(
+              json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
+              f.write("## 求购小样本测试通过\n\n采集3/3件商品，数据库、JSON和HTML报告均已生成。\n")
+              f.write("\n独立测试附件，不写入正式data目录。\n")
+          print("SMOKE_TEST_OK collected=3 report=ready")
+          PY
+      - name: 上传独立测试结果
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: yyyp-smoke-test-${{ github.run_id }}
+          path: ${{ env.YYYP_DATA }}/
+          if-no-files-found: warn
+          retention-days: 7
