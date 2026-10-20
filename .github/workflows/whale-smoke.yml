@@ -1,0 +1,45 @@
+name: Whale 小样本接口测试
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - codex/whale-smoke-20261020
+    paths:
+      - '.github/workflows/whale-smoke.yml'
+      - 'tools/whale_monitor_v7.py'
+      - 'tools/whale_smoke.py'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: whale-smoke
+  cancel-in-progress: false
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      CSQAQ_TOKEN: ${{ secrets.CSQAQ_TOKEN }}
+      WHALE_SMOKE_OUTPUT: ${{ github.workspace }}/whale-smoke-output
+      WHALE_API_TIMEOUT: '15'
+      WHALE_API_INTERVAL: '1.5'
+      WHALE_MAX_RUN_SECONDS: '120'
+      TZ: Asia/Shanghai
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: 离线增量验证及真实小样本调用
+        run: python -u tools/whale_smoke.py
+      - name: 上传脱敏测试摘要
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: whale-smoke-${{ github.run_id }}
+          path: whale-smoke-output/summary.json
+          if-no-files-found: warn
+          retention-days: 7
