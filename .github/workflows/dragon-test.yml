@@ -10,13 +10,13 @@ permissions:
   contents: read
 
 concurrency:
-  group: yyyp-monitor
+  group: yyyp-dragon-test
   cancel-in-progress: false
 
 jobs:
   smoke:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 240
     env:
       YP_RAW_HEADERS: ${{ secrets.YP_RAW_HEADERS }}
       YP_AUTHORIZATION: ${{ secrets.YP_AUTHORIZATION }}
@@ -39,6 +39,7 @@ jobs:
           import os
           import pathlib
           import sqlite3
+          import time
           import monitor
 
           original_load = monitor.load_items
@@ -47,21 +48,40 @@ jobs:
           if len(selected) != 1:
               raise RuntimeError("需要至少1件配置商品")
           monitor.load_items = lambda: selected
-          original_post = monitor.post
           calls = 0
-          def bounded_post(path, body, tries=2):
+          def retry_post(path, body, tries=None):
               global calls
-              calls += 1
-              if calls > 40:
-                  raise RuntimeError("测试请求上限40次，停止采集")
-              result = original_post(path, body, tries=min(tries, 2))
-              code = result.get("code", result.get("Code"))
-              if code != 0:
-                  raise RuntimeError("接口返回非成功状态，code=" + str(code))
-              return result
-          monitor.post = bounded_post
+              attempt = 0
+              while True:
+                  attempt += 1
+                  calls += 1
+                  try:
+                      response = monitor.S.post(monitor.BASE + path, json=body, timeout=20)
+                      if response.status_code in (401, 403):
+                          raise PermissionError("HTTP鉴权失败，停止重试")
+                      if response.status_code == 429 or response.status_code >= 500:
+                          print(f"请求第{attempt}次 HTTP {response.status_code}，5秒后重试", flush=True)
+                          time.sleep(5)
+                          continue
+                      response.raise_for_status()
+                      result = response.json()
+                  except PermissionError:
+                      raise
+                  except (monitor.requests.RequestException, ValueError) as exc:
+                      print(f"请求第{attempt}次临时异常 {type(exc).__name__}，5秒后重试", flush=True)
+                      time.sleep(5)
+                      continue
+                  code = result.get("code", result.get("Code"))
+                  if code == 0:
+                      return result
+                  if str(code) in ("84104", "429"):
+                      print(f"请求第{attempt}次限流 code={code}，5秒后重试", flush=True)
+                      time.sleep(5)
+                      continue
+                  raise RuntimeError("接口非临时错误，停止重试，code=" + str(code))
+          monitor.post = retry_post
 
-          # 和全量任务共用并发锁；精准关键词只搜一页，按ID校验。
+          # 独立单品探测：精准关键词只搜一页，按ID校验。
           def dragon_prices(items):
               result = monitor.post(
                   "/api/homepage/pc/goods/market/querySaleTemplate",
