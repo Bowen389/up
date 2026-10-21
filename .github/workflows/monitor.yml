@@ -69,20 +69,44 @@ jobs:
           YYYP_FORCE: ${{ inputs.force }}
         run: python -u monitor.py
 
-      - name: 提交数据和报告
+      - name: 保存原始采集结果，防止推送失败后丢失
         if: always()
         run: |
-          mkdir -p data
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A data/ || true
-          git diff --cached --quiet || git commit -m "data: $(date +'%F %H:%M')"
-          git push || true
+          mkdir -p publish-backup
+          test ! -f data/yyyp.db || cp data/yyyp.db publish-backup/yyyp.db
+          test ! -f data/report.html || cp data/report.html publish-backup/report.html
 
-      - name: 上传报告附件
+      - name: 提交数据和报告（同步远端并重试）
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          for path in data/yyyp.db data/report.html; do
+            if [ -f "$path" ]; then git add -- "$path"; fi
+          done
+          if git diff --cached --quiet; then
+            echo "No new daily demand data to publish"
+            exit 0
+          fi
+          git commit -m "data: $(date +'%F %H:%M')"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            echo "Push rejected or unavailable; retry $attempt/3"
+            sleep 5
+          done
+          echo "::error::Daily demand data was collected but NOT published; raw database is preserved in artifact."
+          exit 1
+
+      - name: 上传原始数据库和报告
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: report
-          path: data/report.html
+          path: |
+            publish-backup/yyyp.db
+            publish-backup/report.html
           if-no-files-found: ignore
+          retention-days: 30
