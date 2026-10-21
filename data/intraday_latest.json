@@ -1,33 +1,55 @@
 {
-  "version": "intraday-price-daily-demand-v1",
-  "run_id": "39565381787",
-  "started_at": "2026-10-21T15:55:15.222735+08:00",
-  "generated_at": "2026-10-21T16:13:51.850806+08:00",
+  "version": "independent-monitor-pool-v2",
+  "run_id": "39573610785",
+  "started_at": "2026-10-21T17:00:45.083752+08:00",
+  "generated_at": "2026-10-21T17:16:08.196976+08:00",
+  "monitor_universe": "items.txt authoritative YY template IDs",
+  "monitor_items": 815,
+  "report_rows": 815,
+  "score_rows": 661,
+  "scored_monitor_rows": 660,
+  "unscored_monitor_rows": 155,
+  "scoring_status_counts": {
+    "可评分": 660,
+    "低于价格门槛": 18,
+    "研究品类排除": 43,
+    "量能条件不足": 37,
+    "历史不足": 57
+  },
   "scores_url": "https://raw.githubusercontent.com/Bowen389/fable-ML/main/output/daily_multifactor_scores.csv",
-  "scores_sha256": "d6d2bf66a4403210edc06477eba00b70fac53944de4d7abfa3179d26ce87e726",
+  "scores_sha256": "53682023bd6a0ddee76f6ace01d8b65f59600db30733db6a1adeede5b41712b9",
   "score_dates": [
     "2026-10-20"
   ],
-  "score_rows": 661,
+  "score_feed_error": null,
+  "score_audit_url": "https://raw.githubusercontent.com/Bowen389/fable-ML/main/output/score_pool_status.json",
+  "score_audit_asof": "2026-10-20",
+  "score_audit_error": null,
   "exact_mapped": 660,
-  "price_rows": 650,
-  "price_coverage_mapped": 0.9848484848484849,
-  "demand_rows": 660,
-  "demand_batches": [
-    "2026-10-05"
-  ],
-  "purchase_list_requests_this_run": 0,
-  "price_pages": 78,
-  "unmapped": [
+  "unmapped_research_scores": [
     {
       "name": "FAMAS | Djinn (Factory New)",
       "cn": "法玛斯 | 爱神 (崭新出厂)",
       "reason": "exact mapping absent or ambiguous"
     }
   ],
+  "price_attempted": 815,
+  "price_rows": 802,
+  "price_missing_rows": 13,
+  "price_coverage_monitor": 0.9840490797546012,
+  "demand_rows": 815,
+  "demand_batches": [
+    "2026-10-05"
+  ],
+  "purchase_list_requests_this_run": 0,
+  "price_pages": 94,
   "price_errors": [
     {
       "tid": 37514,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 9001,
       "error": "exact ID/name mismatch"
     },
     {
@@ -39,11 +61,15 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 9001,
+      "tid": 43651,
       "error": "exact ID/name mismatch"
     },
     {
       "tid": 109883,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 50470,
       "error": "exact ID/name mismatch"
     },
     {
@@ -55,13 +81,12 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 61679,
+      "tid": 2587,
       "error": "exact ID/name mismatch"
     },
     {
-      "keyword": "格洛克18型",
-      "page": 3,
-      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
+      "tid": 61679,
+      "error": "exact ID/name mismatch"
     }
   ],
   "demand_error": null,
@@ -69,10 +94,11 @@
   "demand_db_sha256": "17e355db2de3a727ec4bb447ad34f9b4d1a2e33bcdf81c5730bc766c72c60bfc",
   "status": "partial",
   "notes": [
+    "监控池来自items.txt，报价尝试和报告行不受评分表、研究排除品类、价格门槛或历史长度影响",
+    "无评分保留为空，不记0分；历史不足、低于研究价格门槛及其他不评分原因单列",
     "仅刷新挂牌报价与在售数，不代表已成交价格；接口未提供逐笔行情时间",
-    "多因子分来自完整日K，盘中报价不倒填日K、不重新训练或伪造盘中分数",
-    "求购沿用每日数据库，采集时间与报价时间分别展示；历史批次没有秒级时间时不补造",
-    "求购厚度不按本轮新价格重算，实时价格变化不能当成真实需求流入",
-    "不自动下单；原版规则或多因子未通过资格时不会因本轮报价或求购而升级为买入"
+    "日线评分只作附加信息，评分源异常也不阻断全池报价；盘中不倒填日K、不重新训练",
+    "求购沿用每日数据库，采集时间与报价时间分别展示；旧批次不补造秒级时间",
+    "求购厚度不按本轮新价格重算；不自动下单，不因报价或旧求购提高未经验证的买入资格"
   ]
 }
