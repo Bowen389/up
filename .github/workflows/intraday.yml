@@ -1,0 +1,55 @@
+name: 盘中报价与每日求购整合
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 3,7,13 * * *' # 北京时间11:15、15:15、21:15
+  push:
+    paths:
+      - intraday_guide.py
+      - publish_intraday.py
+      - .github/workflows/intraday.yml
+permissions:
+  contents: write
+concurrency:
+  group: yyyp-intraday-quotes
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      YP_RAW_HEADERS: ${{ secrets.YP_RAW_HEADERS }}
+      YP_AUTHORIZATION: ${{ secrets.YP_AUTHORIZATION }}
+      YP_DEVICE_ID: ${{ secrets.YP_DEVICE_ID }}
+      YP_DEVICE_UK: ${{ secrets.YP_DEVICE_UK }}
+      YP_UK: ${{ secrets.YP_UK }}
+      TZ: Asia/Shanghai
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Remove checked-out report copies to avoid stale artifacts
+        run: rm -f data/intraday_latest.json data/intraday_latest.md data/intraday_scores_latest.csv
+      - name: Verify daily-demand reuse and quote-only requests
+        run: python -m unittest -v test_intraday.py
+      - name: Refresh quotes and read existing daily demand
+        run: python -u intraday_guide.py
+      - name: Publish current or partial report
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python -u publish_intraday.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: intraday-reference
+          path: |
+            data/intraday_latest.md
+            data/intraday_latest.json
+            data/intraday_scores_latest.csv
+          if-no-files-found: ignore
+          retention-days: 30

@@ -127,6 +127,8 @@ def init_db():
     CREATE TABLE IF NOT EXISTS orders(run TEXT, tid INT, purchase_no TEXT, user_id INT,
         user_name TEXT, price REAL, qty INT, abrade TEXT, valid INT);
     CREATE INDEX IF NOT EXISTS i1 ON orders(run,user_id);
+    CREATE TABLE IF NOT EXISTS snapshot_meta(run TEXT, tid INT, collected_at TEXT, depth_ratio REAL,
+        PRIMARY KEY(run,tid));
     """)
     return db
 
@@ -185,6 +187,8 @@ def main():
             name = name or o.get("commodityName", "")
         db.execute("INSERT OR REPLACE INTO snapshot VALUES(?,?,?,?,?,?,?)",
                    (run, tid, name, minp, cnt, depth, qty))
+        captured_at = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).isoformat(timespec="seconds")
+        db.execute("INSERT OR REPLACE INTO snapshot_meta VALUES(?,?,?,?)", (run, tid, captured_at, ratio))
         db.commit()
         print(f"💓 [{n}/{len(items)}] {name} 底价{minp} 在售{cnt} 厚度¥{depth:,.0f}({qty}件)")
     report(db, run)
@@ -290,3 +294,4 @@ def report(db, run):
 
 if __name__ == "__main__":
     main()
+
