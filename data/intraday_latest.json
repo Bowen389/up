@@ -1,8 +1,8 @@
 {
   "version": "independent-monitor-pool-v2",
-  "run_id": "39573610785",
-  "started_at": "2026-10-21T17:00:45.083752+08:00",
-  "generated_at": "2026-10-21T17:16:08.196976+08:00",
+  "run_id": "39611942708",
+  "started_at": "2026-10-21T21:53:32.077736+08:00",
+  "generated_at": "2026-10-21T22:07:52.163478+08:00",
   "monitor_universe": "items.txt authoritative YY template IDs",
   "monitor_items": 815,
   "report_rows": 815,
@@ -34,38 +34,18 @@
     }
   ],
   "price_attempted": 815,
-  "price_rows": 802,
-  "price_missing_rows": 13,
-  "price_coverage_monitor": 0.9840490797546012,
+  "price_rows": 800,
+  "price_missing_rows": 15,
+  "price_coverage_monitor": 0.9815950920245399,
   "demand_rows": 815,
   "demand_batches": [
-    "2026-10-05"
+    "2026-10-21"
   ],
   "purchase_list_requests_this_run": 0,
-  "price_pages": 94,
+  "price_pages": 93,
   "price_errors": [
     {
       "tid": 37514,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 9001,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 14620,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 49271,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 43651,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 109883,
       "error": "exact ID/name mismatch"
     },
     {
@@ -77,6 +57,18 @@
       "error": "exact ID/name mismatch"
     },
     {
+      "tid": 109883,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 9001,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 43651,
+      "error": "exact ID/name mismatch"
+    },
+    {
       "tid": 1939,
       "error": "exact ID/name mismatch"
     },
@@ -85,13 +77,26 @@
       "error": "exact ID/name mismatch"
     },
     {
+      "tid": 14620,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 49271,
+      "error": "exact ID/name mismatch"
+    },
+    {
       "tid": 61679,
       "error": "exact ID/name mismatch"
+    },
+    {
+      "keyword": "PP-野牛",
+      "page": 2,
+      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
     }
   ],
   "demand_error": null,
   "demand_database_unchanged": true,
-  "demand_db_sha256": "17e355db2de3a727ec4bb447ad34f9b4d1a2e33bcdf81c5730bc766c72c60bfc",
+  "demand_db_sha256": "b014aeb53b7aeba59ef9c239a85624c2df7a0125a0ba7b8ca0056aae22164085",
   "status": "partial",
   "notes": [
     "监控池来自items.txt，报价尝试和报告行不受评分表、研究排除品类、价格门槛或历史长度影响",
