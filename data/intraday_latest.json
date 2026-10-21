@@ -1,0 +1,94 @@
+{
+  "version": "intraday-price-daily-demand-v1",
+  "run_id": "39540069543",
+  "started_at": "2026-10-21T11:42:52.842777+08:00",
+  "generated_at": "2026-10-21T12:04:09.294692+08:00",
+  "scores_url": "https://raw.githubusercontent.com/Bowen389/fable-ML/main/output/daily_multifactor_scores.csv",
+  "scores_sha256": "d6d2bf66a4403210edc06477eba00b70fac53944de4d7abfa3179d26ce87e726",
+  "score_dates": [
+    "2026-10-20"
+  ],
+  "score_rows": 661,
+  "exact_mapped": 660,
+  "price_rows": 621,
+  "price_coverage_mapped": 0.9409090909090909,
+  "demand_rows": 660,
+  "demand_batches": [
+    "2026-10-05"
+  ],
+  "purchase_list_requests_this_run": 0,
+  "price_pages": 72,
+  "unmapped": [
+    {
+      "name": "FAMAS | Djinn (Factory New)",
+      "cn": "法玛斯 | 爱神 (崭新出厂)",
+      "reason": "exact mapping absent or ambiguous"
+    }
+  ],
+  "price_errors": [
+    {
+      "tid": 14620,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 37514,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 109883,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 1939,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 44322,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 9001,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 49271,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "keyword": "CZ75",
+      "page": 2,
+      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
+    },
+    {
+      "keyword": "MP9",
+      "page": 2,
+      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
+    },
+    {
+      "keyword": "P250",
+      "page": 2,
+      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
+    },
+    {
+      "keyword": "P90",
+      "page": 3,
+      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
+    },
+    {
+      "keyword": "驾驶手套",
+      "page": 1,
+      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
+    }
+  ],
+  "demand_error": null,
+  "demand_database_unchanged": true,
+  "demand_db_sha256": "17e355db2de3a727ec4bb447ad34f9b4d1a2e33bcdf81c5730bc766c72c60bfc",
+  "status": "partial",
+  "notes": [
+    "仅刷新挂牌报价与在售数，不代表已成交价格；接口未提供逐笔行情时间",
+    "多因子分来自完整日K，盘中报价不倒填日K、不重新训练或伪造盘中分数",
+    "求购沿用每日数据库，采集时间与报价时间分别展示；历史批次没有秒级时间时不补造",
+    "求购厚度不按本轮新价格重算，实时价格变化不能当成真实需求流入",
+    "不自动下单；原版规则或多因子未通过资格时不会因本轮报价或求购而升级为买入"
+  ]
+}
