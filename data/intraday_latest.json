@@ -1,31 +1,32 @@
 {
   "version": "independent-monitor-pool-v2",
-  "run_id": "39611942708",
-  "started_at": "2026-10-21T21:53:32.077736+08:00",
-  "generated_at": "2026-10-21T22:07:52.163478+08:00",
+  "run_id": "39718847713",
+  "started_at": "2026-10-22T11:48:26.381641+08:00",
+  "generated_at": "2026-10-22T12:03:44.944882+08:00",
   "monitor_universe": "items.txt authoritative YY template IDs",
   "monitor_items": 815,
   "report_rows": 815,
-  "score_rows": 661,
-  "scored_monitor_rows": 660,
-  "unscored_monitor_rows": 155,
+  "score_rows": 657,
+  "scored_monitor_rows": 656,
+  "unscored_monitor_rows": 159,
   "scoring_status_counts": {
-    "可评分": 660,
-    "低于价格门槛": 18,
+    "可评分": 656,
+    "低于价格门槛": 15,
     "研究品类排除": 43,
-    "量能条件不足": 37,
-    "历史不足": 57
+    "量能条件不足": 43,
+    "历史不足": 57,
+    "平价或数据条件不满足": 1
   },
   "scores_url": "https://raw.githubusercontent.com/Bowen389/fable-ML/main/output/daily_multifactor_scores.csv",
-  "scores_sha256": "53682023bd6a0ddee76f6ace01d8b65f59600db30733db6a1adeede5b41712b9",
+  "scores_sha256": "3b82ec6f2de2bb4f40ec788d16638f45402f28e76ceb66fca347bfd864c1a2c2",
   "score_dates": [
-    "2026-10-20"
+    "2026-10-21"
   ],
   "score_feed_error": null,
   "score_audit_url": "https://raw.githubusercontent.com/Bowen389/fable-ML/main/output/score_pool_status.json",
-  "score_audit_asof": "2026-10-20",
+  "score_audit_asof": "2026-10-21",
   "score_audit_error": null,
-  "exact_mapped": 660,
+  "exact_mapped": 656,
   "unmapped_research_scores": [
     {
       "name": "FAMAS | Djinn (Factory New)",
@@ -34,38 +35,22 @@
     }
   ],
   "price_attempted": 815,
-  "price_rows": 800,
-  "price_missing_rows": 15,
-  "price_coverage_monitor": 0.9815950920245399,
+  "price_rows": 801,
+  "price_missing_rows": 14,
+  "price_coverage_monitor": 0.9828220858895705,
   "demand_rows": 815,
   "demand_batches": [
     "2026-10-21"
   ],
   "purchase_list_requests_this_run": 0,
-  "price_pages": 93,
+  "price_pages": 94,
   "price_errors": [
-    {
-      "tid": 37514,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 50470,
-      "error": "exact ID/name mismatch"
-    },
     {
       "tid": 44322,
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 109883,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 9001,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 43651,
+      "tid": 37514,
       "error": "exact ID/name mismatch"
     },
     {
@@ -73,7 +58,19 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 2587,
+      "tid": 109883,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 43651,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 9001,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 50470,
       "error": "exact ID/name mismatch"
     },
     {
@@ -85,13 +82,12 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 61679,
+      "tid": 2587,
       "error": "exact ID/name mismatch"
     },
     {
-      "keyword": "PP-野牛",
-      "page": 2,
-      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
+      "tid": 61679,
+      "error": "exact ID/name mismatch"
     }
   ],
   "demand_error": null,
