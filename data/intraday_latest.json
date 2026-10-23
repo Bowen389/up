@@ -1,8 +1,8 @@
 {
   "version": "independent-monitor-pool-v2",
-  "run_id": "39895727214",
-  "started_at": "2026-10-23T11:34:31.727592+08:00",
-  "generated_at": "2026-10-23T11:47:01.843686+08:00",
+  "run_id": "39920925258",
+  "started_at": "2026-10-23T15:54:39.476752+08:00",
+  "generated_at": "2026-10-23T16:07:02.164891+08:00",
   "monitor_universe": "items.txt authoritative YY template IDs",
   "monitor_items": 815,
   "report_rows": 815,
@@ -17,7 +17,7 @@
     "历史不足": 57
   },
   "scores_url": "https://raw.githubusercontent.com/Bowen389/fable-ML/main/output/daily_multifactor_scores.csv",
-  "scores_sha256": "71eeb8ab54ea8890bc57d9fe8c28f06edab76a5df796eb557e91972eb14ee0dd",
+  "scores_sha256": "5feb1dc9c709a6017337a3fdd0ac6b8486b3e93d852e4ce520ad47cc8fcff42c",
   "score_dates": [
     "2026-10-22"
   ],
@@ -50,27 +50,7 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 50470,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 44322,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 49271,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 1939,
-      "error": "exact ID/name mismatch"
-    },
-    {
       "tid": 14620,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 43651,
       "error": "exact ID/name mismatch"
     },
     {
@@ -82,7 +62,27 @@
       "error": "exact ID/name mismatch"
     },
     {
+      "tid": 44322,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 43651,
+      "error": "exact ID/name mismatch"
+    },
+    {
       "tid": 9001,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 49271,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 50470,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 1939,
       "error": "exact ID/name mismatch"
     },
     {
