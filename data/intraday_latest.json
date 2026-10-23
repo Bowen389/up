@@ -1,8 +1,8 @@
 {
   "version": "independent-monitor-pool-v2",
-  "run_id": "39920925258",
-  "started_at": "2026-10-23T15:54:39.476752+08:00",
-  "generated_at": "2026-10-23T16:07:02.164891+08:00",
+  "run_id": "39964887854",
+  "started_at": "2026-10-23T21:53:05.859131+08:00",
+  "generated_at": "2026-10-23T22:00:24.969147+08:00",
   "monitor_universe": "items.txt authoritative YY template IDs",
   "monitor_items": 815,
   "report_rows": 815,
@@ -39,30 +39,25 @@
   "price_coverage_monitor": 0.9840490797546012,
   "demand_rows": 815,
   "demand_batches": [
-    "2026-10-21",
-    "2026-10-22"
+    "2026-10-23"
   ],
   "purchase_list_requests_this_run": 0,
   "price_pages": 94,
   "price_errors": [
     {
-      "tid": 37514,
-      "error": "exact ID/name mismatch"
-    },
-    {
       "tid": 14620,
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 61679,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 109883,
+      "tid": 37514,
       "error": "exact ID/name mismatch"
     },
     {
       "tid": 44322,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 1939,
       "error": "exact ID/name mismatch"
     },
     {
@@ -82,7 +77,11 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 1939,
+      "tid": 61679,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 109883,
       "error": "exact ID/name mismatch"
     },
     {
@@ -92,7 +91,7 @@
   ],
   "demand_error": null,
   "demand_database_unchanged": true,
-  "demand_db_sha256": "b3f1e6d75ffaa8295eaf6d90451a61df2c715326ea937aa95f1b5b4b154456b6",
+  "demand_db_sha256": "e0b29bb78cfc51f9b8968d4811e1a18483d2cb1563c5e4fafe23fa111a2005c6",
   "status": "partial",
   "notes": [
     "监控池来自items.txt，报价尝试和报告行不受评分表、研究排除品类、价格门槛或历史长度影响",
