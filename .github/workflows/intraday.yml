@@ -2,7 +2,7 @@ name: 盘中报价与每日求购整合
 on:
   workflow_dispatch:
   schedule:
-    - cron: '15 3,7,13 * * *' # 北京时间11:15、15:15、21:15
+    - cron: '17 1,7,13 * * *' # 北京时间09:17、15:17、21:17；每天三次报价，求购仍每日一次
   push:
     paths:
       - intraday_guide.py
