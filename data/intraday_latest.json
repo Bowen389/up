@@ -1,8 +1,8 @@
 {
   "version": "independent-monitor-pool-v2",
-  "run_id": "40075377112",
-  "started_at": "2026-10-24T15:45:28.120601+08:00",
-  "generated_at": "2026-10-24T15:58:45.995011+08:00",
+  "run_id": "40099324182",
+  "started_at": "2026-10-24T21:43:03.890305+08:00",
+  "generated_at": "2026-10-24T21:55:26.552395+08:00",
   "monitor_universe": "items.txt authoritative YY template IDs",
   "monitor_items": 815,
   "report_rows": 815,
@@ -40,37 +40,14 @@
   "price_coverage_monitor": 0.9840490797546012,
   "demand_rows": 815,
   "demand_batches": [
-    "2026-10-23"
+    "2026-10-23",
+    "2026-10-24"
   ],
   "purchase_list_requests_this_run": 0,
-  "price_pages": 93,
+  "price_pages": 94,
   "price_errors": [
     {
-      "tid": 44322,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 37514,
-      "error": "exact ID/name mismatch"
-    },
-    {
       "tid": 43651,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 61679,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 109883,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 14620,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 50470,
       "error": "exact ID/name mismatch"
     },
     {
@@ -78,7 +55,23 @@
       "error": "exact ID/name mismatch"
     },
     {
+      "tid": 44322,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 14620,
+      "error": "exact ID/name mismatch"
+    },
+    {
       "tid": 1939,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 61679,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 50470,
       "error": "exact ID/name mismatch"
     },
     {
@@ -86,18 +79,21 @@
       "error": "exact ID/name mismatch"
     },
     {
+      "tid": 37514,
+      "error": "exact ID/name mismatch"
+    },
+    {
       "tid": 9001,
       "error": "exact ID/name mismatch"
     },
     {
-      "keyword": "XM1014",
-      "page": 3,
-      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
+      "tid": 109883,
+      "error": "exact ID/name mismatch"
     }
   ],
   "demand_error": null,
   "demand_database_unchanged": true,
-  "demand_db_sha256": "e0b29bb78cfc51f9b8968d4811e1a18483d2cb1563c5e4fafe23fa111a2005c6",
+  "demand_db_sha256": "293b70d7261472c8931536bf65ce9e5bac09518c7798df4183f1b7a8ceb15cea",
   "status": "partial",
   "notes": [
     "监控池来自items.txt，报价尝试和报告行不受评分表、研究排除品类、价格门槛或历史长度影响",
