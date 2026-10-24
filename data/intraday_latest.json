@@ -1,31 +1,32 @@
 {
   "version": "independent-monitor-pool-v2",
-  "run_id": "40051633466",
-  "started_at": "2026-10-24T09:51:06.020609+08:00",
-  "generated_at": "2026-10-24T10:01:32.498258+08:00",
+  "run_id": "40075377112",
+  "started_at": "2026-10-24T15:45:28.120601+08:00",
+  "generated_at": "2026-10-24T15:58:45.995011+08:00",
   "monitor_universe": "items.txt authoritative YY template IDs",
   "monitor_items": 815,
   "report_rows": 815,
-  "score_rows": 654,
-  "scored_monitor_rows": 653,
-  "unscored_monitor_rows": 162,
+  "score_rows": 652,
+  "scored_monitor_rows": 651,
+  "unscored_monitor_rows": 164,
   "scoring_status_counts": {
-    "可评分": 653,
-    "低于价格门槛": 13,
+    "可评分": 651,
+    "低于价格门槛": 19,
     "研究品类排除": 43,
-    "量能条件不足": 49,
+    "量能条件不足": 44,
+    "平价或数据条件不满足": 1,
     "历史不足": 57
   },
   "scores_url": "https://raw.githubusercontent.com/Bowen389/fable-ML/main/output/daily_multifactor_scores.csv",
-  "scores_sha256": "5feb1dc9c709a6017337a3fdd0ac6b8486b3e93d852e4ce520ad47cc8fcff42c",
+  "scores_sha256": "fe025aefd78661d086a7bfa0c09aaa743515f2163a12b506ed829165fd19b8c6",
   "score_dates": [
-    "2026-10-22"
+    "2026-10-23"
   ],
   "score_feed_error": null,
   "score_audit_url": "https://raw.githubusercontent.com/Bowen389/fable-ML/main/output/score_pool_status.json",
-  "score_audit_asof": "2026-10-22",
+  "score_audit_asof": "2026-10-23",
   "score_audit_error": null,
-  "exact_mapped": 653,
+  "exact_mapped": 651,
   "unmapped_research_scores": [
     {
       "name": "FAMAS | Djinn (Factory New)",
@@ -34,30 +35,22 @@
     }
   ],
   "price_attempted": 815,
-  "price_rows": 801,
-  "price_missing_rows": 14,
-  "price_coverage_monitor": 0.9828220858895705,
+  "price_rows": 802,
+  "price_missing_rows": 13,
+  "price_coverage_monitor": 0.9840490797546012,
   "demand_rows": 815,
   "demand_batches": [
     "2026-10-23"
   ],
   "purchase_list_requests_this_run": 0,
-  "price_pages": 94,
+  "price_pages": 93,
   "price_errors": [
-    {
-      "tid": 37514,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 14620,
-      "error": "exact ID/name mismatch"
-    },
     {
       "tid": 44322,
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 109883,
+      "tid": 37514,
       "error": "exact ID/name mismatch"
     },
     {
@@ -65,7 +58,15 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 2587,
+      "tid": 61679,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 109883,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 14620,
       "error": "exact ID/name mismatch"
     },
     {
@@ -73,11 +74,15 @@
       "error": "exact ID/name mismatch"
     },
     {
+      "tid": 49271,
+      "error": "exact ID/name mismatch"
+    },
+    {
       "tid": 1939,
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 49271,
+      "tid": 2587,
       "error": "exact ID/name mismatch"
     },
     {
@@ -85,8 +90,9 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 61679,
-      "error": "exact ID/name mismatch"
+      "keyword": "XM1014",
+      "page": 3,
+      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
     }
   ],
   "demand_error": null,
