@@ -1,32 +1,32 @@
 {
   "version": "independent-monitor-pool-v2",
-  "run_id": "40151713468",
-  "started_at": "2026-10-25T09:43:06.884340+08:00",
-  "generated_at": "2026-10-25T09:57:29.263428+08:00",
+  "run_id": "40174088819",
+  "started_at": "2026-10-25T15:47:19.976744+08:00",
+  "generated_at": "2026-10-25T16:04:58.392708+08:00",
   "monitor_universe": "items.txt authoritative YY template IDs",
   "monitor_items": 815,
   "report_rows": 815,
-  "score_rows": 652,
-  "scored_monitor_rows": 651,
-  "unscored_monitor_rows": 164,
+  "score_rows": 649,
+  "scored_monitor_rows": 648,
+  "unscored_monitor_rows": 167,
   "scoring_status_counts": {
-    "可评分": 651,
-    "低于价格门槛": 19,
+    "可评分": 648,
+    "低于价格门槛": 22,
     "研究品类排除": 43,
-    "量能条件不足": 44,
-    "平价或数据条件不满足": 1,
+    "量能条件不足": 43,
+    "平价或数据条件不满足": 2,
     "历史不足": 57
   },
   "scores_url": "https://raw.githubusercontent.com/Bowen389/fable-ML/main/output/daily_multifactor_scores.csv",
-  "scores_sha256": "fe025aefd78661d086a7bfa0c09aaa743515f2163a12b506ed829165fd19b8c6",
+  "scores_sha256": "97f2ab5a99349ab593c88a2a77feba1fc4f044ddea60a3410999dc5c94752bc4",
   "score_dates": [
-    "2026-10-23"
+    "2026-10-24"
   ],
   "score_feed_error": null,
   "score_audit_url": "https://raw.githubusercontent.com/Bowen389/fable-ML/main/output/score_pool_status.json",
-  "score_audit_asof": "2026-10-23",
+  "score_audit_asof": "2026-10-24",
   "score_audit_error": null,
-  "exact_mapped": 651,
+  "exact_mapped": 648,
   "unmapped_research_scores": [
     {
       "name": "FAMAS | Djinn (Factory New)",
@@ -47,7 +47,7 @@
   "price_pages": 94,
   "price_errors": [
     {
-      "tid": 43651,
+      "tid": 50470,
       "error": "exact ID/name mismatch"
     },
     {
@@ -55,15 +55,11 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 109883,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 37514,
-      "error": "exact ID/name mismatch"
-    },
-    {
       "tid": 14620,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 43651,
       "error": "exact ID/name mismatch"
     },
     {
@@ -71,7 +67,7 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 49271,
+      "tid": 109883,
       "error": "exact ID/name mismatch"
     },
     {
@@ -79,15 +75,19 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 9001,
-      "error": "exact ID/name mismatch"
-    },
-    {
       "tid": 2587,
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 50470,
+      "tid": 9001,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 37514,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 49271,
       "error": "exact ID/name mismatch"
     }
   ],
