@@ -1,8 +1,8 @@
 {
   "version": "independent-monitor-pool-v2",
-  "run_id": "40099324182",
-  "started_at": "2026-10-24T21:43:03.890305+08:00",
-  "generated_at": "2026-10-24T21:55:26.552395+08:00",
+  "run_id": "40151713468",
+  "started_at": "2026-10-25T09:43:06.884340+08:00",
+  "generated_at": "2026-10-25T09:57:29.263428+08:00",
   "monitor_universe": "items.txt authoritative YY template IDs",
   "monitor_items": 815,
   "report_rows": 815,
@@ -51,31 +51,11 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 49271,
-      "error": "exact ID/name mismatch"
-    },
-    {
       "tid": 44322,
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 14620,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 1939,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 61679,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 50470,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 2587,
+      "tid": 109883,
       "error": "exact ID/name mismatch"
     },
     {
@@ -83,11 +63,31 @@
       "error": "exact ID/name mismatch"
     },
     {
+      "tid": 14620,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 61679,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 49271,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 1939,
+      "error": "exact ID/name mismatch"
+    },
+    {
       "tid": 9001,
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 109883,
+      "tid": 2587,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 50470,
       "error": "exact ID/name mismatch"
     }
   ],
