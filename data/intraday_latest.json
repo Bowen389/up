@@ -1,8 +1,8 @@
 {
   "version": "independent-monitor-pool-v2",
-  "run_id": "40174088819",
-  "started_at": "2026-10-25T15:47:19.976744+08:00",
-  "generated_at": "2026-10-25T16:04:58.392708+08:00",
+  "run_id": "40198921316",
+  "started_at": "2026-10-25T21:43:39.838541+08:00",
+  "generated_at": "2026-10-25T21:55:56.322536+08:00",
   "monitor_universe": "items.txt authoritative YY template IDs",
   "monitor_items": 815,
   "report_rows": 815,
@@ -35,35 +35,18 @@
     }
   ],
   "price_attempted": 815,
-  "price_rows": 802,
-  "price_missing_rows": 13,
-  "price_coverage_monitor": 0.9840490797546012,
+  "price_rows": 794,
+  "price_missing_rows": 21,
+  "price_coverage_monitor": 0.9742331288343559,
   "demand_rows": 815,
   "demand_batches": [
-    "2026-10-23",
-    "2026-10-24"
+    "2026-10-25"
   ],
   "purchase_list_requests_this_run": 0,
-  "price_pages": 94,
+  "price_pages": 92,
   "price_errors": [
     {
-      "tid": 50470,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 44322,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 14620,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 43651,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 61679,
+      "tid": 49271,
       "error": "exact ID/name mismatch"
     },
     {
@@ -71,7 +54,31 @@
       "error": "exact ID/name mismatch"
     },
     {
+      "tid": 14620,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 44322,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 61679,
+      "error": "exact ID/name mismatch"
+    },
+    {
       "tid": 1939,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 43651,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 37514,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 50470,
       "error": "exact ID/name mismatch"
     },
     {
@@ -83,17 +90,19 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 37514,
-      "error": "exact ID/name mismatch"
+      "keyword": "九头蛇手套",
+      "page": 1,
+      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
     },
     {
-      "tid": 49271,
-      "error": "exact ID/name mismatch"
+      "keyword": "沙漠之鹰",
+      "page": 3,
+      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
     }
   ],
   "demand_error": null,
   "demand_database_unchanged": true,
-  "demand_db_sha256": "293b70d7261472c8931536bf65ce9e5bac09518c7798df4183f1b7a8ceb15cea",
+  "demand_db_sha256": "12ab13efd93512d6786020e82cba71bdaf278a0ac4b181ef768dd59eb67fd5da",
   "status": "partial",
   "notes": [
     "监控池来自items.txt，报价尝试和报告行不受评分表、研究排除品类、价格门槛或历史长度影响",
