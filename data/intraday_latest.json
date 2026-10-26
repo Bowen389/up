@@ -1,60 +1,50 @@
 {
   "version": "independent-monitor-pool-v2",
-  "run_id": "40256626249",
-  "started_at": "2026-10-26T09:56:37.001933+08:00",
-  "generated_at": "2026-10-26T10:02:51.321134+08:00",
+  "run_id": "40289514721",
+  "started_at": "2026-10-26T16:02:19.837111+08:00",
+  "generated_at": "2026-10-26T16:15:36.974896+08:00",
   "monitor_universe": "items.txt authoritative YY template IDs",
   "monitor_items": 815,
   "report_rows": 815,
-  "score_rows": 649,
-  "scored_monitor_rows": 648,
-  "unscored_monitor_rows": 167,
+  "score_rows": 647,
+  "scored_monitor_rows": 647,
+  "unscored_monitor_rows": 168,
   "scoring_status_counts": {
-    "可评分": 648,
-    "低于价格门槛": 22,
+    "可评分": 647,
+    "低于价格门槛": 23,
     "研究品类排除": 43,
-    "量能条件不足": 43,
-    "平价或数据条件不满足": 2,
+    "量能条件不足": 44,
+    "平价或数据条件不满足": 1,
     "历史不足": 57
   },
   "scores_url": "https://raw.githubusercontent.com/Bowen389/fable-ML/main/output/daily_multifactor_scores.csv",
-  "scores_sha256": "97f2ab5a99349ab593c88a2a77feba1fc4f044ddea60a3410999dc5c94752bc4",
+  "scores_sha256": "6c51e9674659677350b2e0c02c76ef488b1047345bc4c6de1a1af24737201d6d",
   "score_dates": [
-    "2026-10-24"
+    "2026-10-25"
   ],
   "score_feed_error": null,
   "score_audit_url": "https://raw.githubusercontent.com/Bowen389/fable-ML/main/output/score_pool_status.json",
-  "score_audit_asof": "2026-10-24",
+  "score_audit_asof": "2026-10-25",
   "score_audit_error": null,
-  "exact_mapped": 648,
-  "unmapped_research_scores": [
-    {
-      "name": "FAMAS | Djinn (Factory New)",
-      "cn": "法玛斯 | 爱神 (崭新出厂)",
-      "reason": "exact mapping absent or ambiguous"
-    }
-  ],
+  "exact_mapped": 647,
+  "unmapped_research_scores": [],
   "price_attempted": 815,
-  "price_rows": 802,
-  "price_missing_rows": 13,
-  "price_coverage_monitor": 0.9840490797546012,
+  "price_rows": 786,
+  "price_missing_rows": 29,
+  "price_coverage_monitor": 0.9644171779141104,
   "demand_rows": 815,
   "demand_batches": [
     "2026-10-25"
   ],
   "purchase_list_requests_this_run": 0,
-  "price_pages": 94,
+  "price_pages": 92,
   "price_errors": [
-    {
-      "tid": 44322,
-      "error": "exact ID/name mismatch"
-    },
     {
       "tid": 14620,
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 43651,
+      "tid": 50470,
       "error": "exact ID/name mismatch"
     },
     {
@@ -66,15 +56,15 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 37514,
-      "error": "exact ID/name mismatch"
-    },
-    {
       "tid": 1939,
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 50470,
+      "tid": 37514,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 43651,
       "error": "exact ID/name mismatch"
     },
     {
@@ -86,8 +76,17 @@
       "error": "exact ID/name mismatch"
     },
     {
+      "tid": 44322,
+      "error": "exact ID/name mismatch"
+    },
+    {
       "tid": 2587,
       "error": "exact ID/name mismatch"
+    },
+    {
+      "keyword": "MP7",
+      "page": 1,
+      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
     }
   ],
   "demand_error": null,
