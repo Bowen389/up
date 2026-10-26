@@ -1,8 +1,8 @@
 {
   "version": "independent-monitor-pool-v2",
-  "run_id": "40289514721",
-  "started_at": "2026-10-26T16:02:19.837111+08:00",
-  "generated_at": "2026-10-26T16:15:36.974896+08:00",
+  "run_id": "40347422907",
+  "started_at": "2026-10-26T23:15:29.193644+08:00",
+  "generated_at": "2026-10-26T23:32:42.863789+08:00",
   "monitor_universe": "items.txt authoritative YY template IDs",
   "monitor_items": 815,
   "report_rows": 815,
@@ -29,30 +29,18 @@
   "exact_mapped": 647,
   "unmapped_research_scores": [],
   "price_attempted": 815,
-  "price_rows": 786,
-  "price_missing_rows": 29,
-  "price_coverage_monitor": 0.9644171779141104,
+  "price_rows": 784,
+  "price_missing_rows": 31,
+  "price_coverage_monitor": 0.9619631901840491,
   "demand_rows": 815,
   "demand_batches": [
-    "2026-10-25"
+    "2026-10-26"
   ],
   "purchase_list_requests_this_run": 0,
-  "price_pages": 92,
+  "price_pages": 89,
   "price_errors": [
     {
-      "tid": 14620,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 50470,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 109883,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 61679,
+      "tid": 43651,
       "error": "exact ID/name mismatch"
     },
     {
@@ -60,19 +48,15 @@
       "error": "exact ID/name mismatch"
     },
     {
+      "tid": 61679,
+      "error": "exact ID/name mismatch"
+    },
+    {
       "tid": 37514,
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 43651,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 49271,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 9001,
+      "tid": 14620,
       "error": "exact ID/name mismatch"
     },
     {
@@ -80,18 +64,44 @@
       "error": "exact ID/name mismatch"
     },
     {
+      "tid": 49271,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 109883,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 50470,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 9001,
+      "error": "exact ID/name mismatch"
+    },
+    {
       "tid": 2587,
       "error": "exact ID/name mismatch"
     },
     {
-      "keyword": "MP7",
+      "keyword": "SG 553",
+      "page": 2,
+      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
+    },
+    {
+      "keyword": "内格夫",
+      "page": 1,
+      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
+    },
+    {
+      "keyword": "双持贝瑞塔",
       "page": 1,
       "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
     }
   ],
   "demand_error": null,
   "demand_database_unchanged": true,
-  "demand_db_sha256": "12ab13efd93512d6786020e82cba71bdaf278a0ac4b181ef768dd59eb67fd5da",
+  "demand_db_sha256": "dfd62c244547a937c7956387e09a38661846c426d707f1ee02614a44ea954960",
   "status": "partial",
   "notes": [
     "监控池来自items.txt，报价尝试和报告行不受评分表、研究排除品类、价格门槛或历史长度影响",
