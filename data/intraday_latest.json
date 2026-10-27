@@ -1,8 +1,8 @@
 {
   "version": "independent-monitor-pool-v2",
-  "run_id": "40510325542",
-  "started_at": "2026-10-27T21:14:51.087172+08:00",
-  "generated_at": "2026-10-27T21:30:09.931988+08:00",
+  "run_id": "40562710580",
+  "started_at": "2026-10-28T02:44:22.714742+08:00",
+  "generated_at": "2026-10-28T02:54:43.403795+08:00",
   "monitor_universe": "items.txt authoritative YY template IDs",
   "monitor_items": 815,
   "report_rows": 815,
@@ -35,39 +35,18 @@
     }
   ],
   "price_attempted": 815,
-  "price_rows": 798,
-  "price_missing_rows": 17,
-  "price_coverage_monitor": 0.9791411042944785,
+  "price_rows": 794,
+  "price_missing_rows": 21,
+  "price_coverage_monitor": 0.9742331288343559,
   "demand_rows": 815,
   "demand_batches": [
     "2026-10-27"
   ],
   "purchase_list_requests_this_run": 0,
-  "price_pages": 92,
+  "price_pages": 93,
   "price_errors": [
     {
-      "keyword": "AUG",
-      "page": 2,
-      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
-    },
-    {
-      "tid": 44322,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 9001,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 14620,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 109883,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 49271,
+      "tid": 43651,
       "error": "exact ID/name mismatch"
     },
     {
@@ -75,15 +54,35 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 61679,
-      "error": "exact ID/name mismatch"
-    },
-    {
       "tid": 37514,
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 43651,
+      "tid": 44322,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 109883,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 14620,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 9001,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 2587,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 49271,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 61679,
       "error": "exact ID/name mismatch"
     },
     {
@@ -91,8 +90,9 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 2587,
-      "error": "exact ID/name mismatch"
+      "keyword": "狂牙手套",
+      "page": 1,
+      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
     }
   ],
   "demand_error": null,
