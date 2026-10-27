@@ -1,8 +1,8 @@
 {
   "version": "independent-monitor-pool-v2",
-  "run_id": "40460335285",
-  "started_at": "2026-10-27T14:18:56.854020+08:00",
-  "generated_at": "2026-10-27T14:34:13.469186+08:00",
+  "run_id": "40510325542",
+  "started_at": "2026-10-27T21:14:51.087172+08:00",
+  "generated_at": "2026-10-27T21:30:09.931988+08:00",
   "monitor_universe": "items.txt authoritative YY template IDs",
   "monitor_items": 815,
   "report_rows": 815,
@@ -35,38 +35,23 @@
     }
   ],
   "price_attempted": 815,
-  "price_rows": 802,
-  "price_missing_rows": 13,
-  "price_coverage_monitor": 0.9840490797546012,
+  "price_rows": 798,
+  "price_missing_rows": 17,
+  "price_coverage_monitor": 0.9791411042944785,
   "demand_rows": 815,
   "demand_batches": [
-    "2026-10-26"
+    "2026-10-27"
   ],
   "purchase_list_requests_this_run": 0,
   "price_pages": 92,
   "price_errors": [
     {
-      "tid": 43651,
-      "error": "exact ID/name mismatch"
+      "keyword": "AUG",
+      "page": 2,
+      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
     },
     {
-      "tid": 109883,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 37514,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 1939,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 50470,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 61679,
+      "tid": 44322,
       "error": "exact ID/name mismatch"
     },
     {
@@ -74,7 +59,11 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 44322,
+      "tid": 14620,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 109883,
       "error": "exact ID/name mismatch"
     },
     {
@@ -82,27 +71,33 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 14620,
+      "tid": 1939,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 61679,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 37514,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 43651,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 50470,
       "error": "exact ID/name mismatch"
     },
     {
       "tid": 2587,
       "error": "exact ID/name mismatch"
-    },
-    {
-      "keyword": "M249",
-      "page": 2,
-      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
-    },
-    {
-      "keyword": "MP9",
-      "page": 3,
-      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
     }
   ],
   "demand_error": null,
   "demand_database_unchanged": true,
-  "demand_db_sha256": "dfd62c244547a937c7956387e09a38661846c426d707f1ee02614a44ea954960",
+  "demand_db_sha256": "94aee8f110bec7b277fbaf2fee204f4ad36046b64d7498c023f767a1e8d48f55",
   "status": "partial",
   "notes": [
     "监控池来自items.txt，报价尝试和报告行不受评分表、研究排除品类、价格门槛或历史长度影响",
