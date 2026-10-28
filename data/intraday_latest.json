@@ -1,32 +1,31 @@
 {
   "version": "independent-monitor-pool-v2",
-  "run_id": "40646546215",
-  "started_at": "2026-10-28T14:52:55.404645+08:00",
-  "generated_at": "2026-10-28T15:06:11.742301+08:00",
+  "run_id": "40702187167",
+  "started_at": "2026-10-28T22:03:31.476450+08:00",
+  "generated_at": "2026-10-28T22:20:52.128914+08:00",
   "monitor_universe": "items.txt authoritative YY template IDs",
   "monitor_items": 815,
   "report_rows": 815,
-  "score_rows": 649,
-  "scored_monitor_rows": 648,
-  "unscored_monitor_rows": 167,
+  "score_rows": 645,
+  "scored_monitor_rows": 644,
+  "unscored_monitor_rows": 171,
   "scoring_status_counts": {
-    "可评分": 648,
-    "低于价格门槛": 24,
+    "可评分": 644,
+    "低于价格门槛": 25,
     "研究品类排除": 43,
-    "量能条件不足": 41,
-    "平价或数据条件不满足": 2,
+    "量能条件不足": 46,
     "历史不足": 57
   },
   "scores_url": "https://raw.githubusercontent.com/Bowen389/fable-ML/main/output/daily_multifactor_scores.csv",
-  "scores_sha256": "1e049f17f1dee5691fbc64b45abca6646fc2e115fb016252d84864af7fd9a3c4",
+  "scores_sha256": "27f97d6ea75f8b7a3864466081f3a1e9104fefdd82b03dd26f65b20b9a56a09c",
   "score_dates": [
-    "2026-10-26"
+    "2026-10-27"
   ],
   "score_feed_error": null,
   "score_audit_url": "https://raw.githubusercontent.com/Bowen389/fable-ML/main/output/score_pool_status.json",
-  "score_audit_asof": "2026-10-26",
+  "score_audit_asof": "2026-10-27",
   "score_audit_error": null,
-  "exact_mapped": 648,
+  "exact_mapped": 644,
   "unmapped_research_scores": [
     {
       "name": "FAMAS | Djinn (Factory New)",
@@ -35,34 +34,27 @@
     }
   ],
   "price_attempted": 815,
-  "price_rows": 785,
-  "price_missing_rows": 30,
-  "price_coverage_monitor": 0.9631901840490797,
+  "price_rows": 796,
+  "price_missing_rows": 19,
+  "price_coverage_monitor": 0.9766871165644172,
   "demand_rows": 815,
   "demand_batches": [
     "2026-10-27"
   ],
   "purchase_list_requests_this_run": 0,
-  "price_pages": 92,
+  "price_pages": 91,
   "price_errors": [
     {
-      "tid": 1939,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 9001,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 37514,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 61679,
-      "error": "exact ID/name mismatch"
+      "keyword": "AWP",
+      "page": 2,
+      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
     },
     {
       "tid": 109883,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 44322,
       "error": "exact ID/name mismatch"
     },
     {
@@ -74,11 +66,11 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 50470,
+      "tid": 1939,
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 44322,
+      "tid": 61679,
       "error": "exact ID/name mismatch"
     },
     {
@@ -86,12 +78,24 @@
       "error": "exact ID/name mismatch"
     },
     {
+      "tid": 50470,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 9001,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 37514,
+      "error": "exact ID/name mismatch"
+    },
+    {
       "tid": 2587,
       "error": "exact ID/name mismatch"
     },
     {
-      "keyword": "P2000",
-      "page": 1,
+      "keyword": "法玛斯",
+      "page": 3,
       "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
     }
   ],
