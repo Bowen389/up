@@ -1,31 +1,32 @@
 {
   "version": "independent-monitor-pool-v2",
-  "run_id": "40833572334",
-  "started_at": "2026-10-29T15:09:09.538088+08:00",
-  "generated_at": "2026-10-29T15:21:41.406202+08:00",
+  "run_id": "40890955447",
+  "started_at": "2026-10-29T22:23:29.263354+08:00",
+  "generated_at": "2026-10-29T22:37:41.579059+08:00",
   "monitor_universe": "items.txt authoritative YY template IDs",
   "monitor_items": 815,
   "report_rows": 815,
-  "score_rows": 645,
-  "scored_monitor_rows": 644,
-  "unscored_monitor_rows": 171,
+  "score_rows": 638,
+  "scored_monitor_rows": 637,
+  "unscored_monitor_rows": 178,
   "scoring_status_counts": {
-    "可评分": 644,
-    "低于价格门槛": 25,
+    "可评分": 637,
+    "低于价格门槛": 28,
     "研究品类排除": 43,
-    "量能条件不足": 46,
-    "历史不足": 57
+    "量能条件不足": 49,
+    "历史不足": 57,
+    "平价或数据条件不满足": 1
   },
   "scores_url": "https://raw.githubusercontent.com/Bowen389/fable-ML/main/output/daily_multifactor_scores.csv",
-  "scores_sha256": "27f97d6ea75f8b7a3864466081f3a1e9104fefdd82b03dd26f65b20b9a56a09c",
+  "scores_sha256": "d42a8abe1fe4a2accf26371f46ac5e3a0d1bd6844d3da4fd3dba4973301b0b24",
   "score_dates": [
-    "2026-10-27"
+    "2026-10-28"
   ],
   "score_feed_error": null,
   "score_audit_url": "https://raw.githubusercontent.com/Bowen389/fable-ML/main/output/score_pool_status.json",
-  "score_audit_asof": "2026-10-27",
+  "score_audit_asof": "2026-10-28",
   "score_audit_error": null,
-  "exact_mapped": 644,
+  "exact_mapped": 637,
   "unmapped_research_scores": [
     {
       "name": "FAMAS | Djinn (Factory New)",
@@ -34,22 +35,22 @@
     }
   ],
   "price_attempted": 815,
-  "price_rows": 801,
-  "price_missing_rows": 14,
-  "price_coverage_monitor": 0.9828220858895705,
+  "price_rows": 791,
+  "price_missing_rows": 24,
+  "price_coverage_monitor": 0.9705521472392638,
   "demand_rows": 815,
   "demand_batches": [
     "2026-10-28"
   ],
   "purchase_list_requests_this_run": 0,
-  "price_pages": 94,
+  "price_pages": 91,
   "price_errors": [
     {
-      "tid": 109883,
+      "tid": 44322,
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 37514,
+      "tid": 1939,
       "error": "exact ID/name mismatch"
     },
     {
@@ -65,19 +66,11 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 44322,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 1939,
-      "error": "exact ID/name mismatch"
-    },
-    {
       "tid": 2587,
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 50470,
+      "tid": 37514,
       "error": "exact ID/name mismatch"
     },
     {
@@ -85,8 +78,26 @@
       "error": "exact ID/name mismatch"
     },
     {
+      "tid": 109883,
+      "error": "exact ID/name mismatch"
+    },
+    {
       "tid": 9001,
       "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 50470,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "keyword": "M4A1消音版",
+      "page": 3,
+      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
+    },
+    {
+      "keyword": "PP-野牛",
+      "page": 1,
+      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
     }
   ],
   "demand_error": null,
