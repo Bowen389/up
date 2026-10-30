@@ -1,8 +1,8 @@
 {
   "version": "independent-monitor-pool-v2",
-  "run_id": "40890955447",
-  "started_at": "2026-10-29T22:23:29.263354+08:00",
-  "generated_at": "2026-10-29T22:37:41.579059+08:00",
+  "run_id": "41018408665",
+  "started_at": "2026-10-30T15:10:19.002077+08:00",
+  "generated_at": "2026-10-30T15:29:33.904667+08:00",
   "monitor_universe": "items.txt authoritative YY template IDs",
   "monitor_items": 815,
   "report_rows": 815,
@@ -35,38 +35,23 @@
     }
   ],
   "price_attempted": 815,
-  "price_rows": 791,
-  "price_missing_rows": 24,
-  "price_coverage_monitor": 0.9705521472392638,
+  "price_rows": 785,
+  "price_missing_rows": 30,
+  "price_coverage_monitor": 0.9631901840490797,
   "demand_rows": 815,
   "demand_batches": [
-    "2026-10-28"
+    "2026-10-30"
   ],
   "purchase_list_requests_this_run": 0,
   "price_pages": 91,
   "price_errors": [
     {
-      "tid": 44322,
-      "error": "exact ID/name mismatch"
+      "keyword": "AUG",
+      "page": 1,
+      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
     },
     {
-      "tid": 1939,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 49271,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 14620,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 43651,
-      "error": "exact ID/name mismatch"
-    },
-    {
-      "tid": 2587,
+      "tid": 109883,
       "error": "exact ID/name mismatch"
     },
     {
@@ -74,15 +59,27 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 61679,
+      "tid": 2587,
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 109883,
+      "tid": 14620,
       "error": "exact ID/name mismatch"
     },
     {
-      "tid": 9001,
+      "tid": 1939,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 44322,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 43651,
+      "error": "exact ID/name mismatch"
+    },
+    {
+      "tid": 49271,
       "error": "exact ID/name mismatch"
     },
     {
@@ -90,19 +87,17 @@
       "error": "exact ID/name mismatch"
     },
     {
-      "keyword": "M4A1消音版",
-      "page": 3,
-      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
+      "tid": 9001,
+      "error": "exact ID/name mismatch"
     },
     {
-      "keyword": "PP-野牛",
-      "page": 1,
-      "error": "RuntimeError: 请求多次失败: /api/homepage/pc/goods/market/querySaleTemplate"
+      "tid": 61679,
+      "error": "exact ID/name mismatch"
     }
   ],
   "demand_error": null,
   "demand_database_unchanged": true,
-  "demand_db_sha256": "cf54705fe2f8a661f795428ad26727b1a5b34b14f2d30af4a5a9f64a4a288c55",
+  "demand_db_sha256": "fc274034f7c5aeecf92b1f0854511a752af88ff5d5bb0c2d84864283044c9832",
   "status": "partial",
   "notes": [
     "监控池来自items.txt，报价尝试和报告行不受评分表、研究排除品类、价格门槛或历史长度影响",
